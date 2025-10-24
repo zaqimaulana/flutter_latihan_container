@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: "Latihan Container",
+      title: "judul aplikasi",
       home: const MyHome(),
     );
   }
@@ -24,20 +24,28 @@ class MyHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Latihan Container", style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.blueGrey,
+        title: const Text("Dashboard"),
+        backgroundColor: const Color.fromARGB(255, 255, 7, 7),
+        actions: const [
+          Icon(Icons.person, color: Colors.white),
+          SizedBox(width: 10),
+          Icon(Icons.account_tree, color: Colors.white),
+          Icon(Icons.ac_unit, color: Colors.white),
+          SizedBox(width: 20),
+        ],
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            // 🔷 Container pertama
-            Container(
-              width: 100,
-              height: 100,
-              margin: const EdgeInsets.only(top: 10, left: 20),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // 🔄 Container 1 dengan efek rotasi 15 derajat
+          Transform.rotate(
+            angle: 0.26, // 0.26 radian = 15 derajat
+            child: Container(
+              width: 120,
+              height: 120,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 30, left: 20),
               padding: const EdgeInsets.all(20),
-              alignment: Alignment.topCenter,
               decoration: BoxDecoration(
                 gradient: const LinearGradient(
                   begin: Alignment.topRight,
@@ -45,22 +53,6 @@ class MyHome extends StatelessWidget {
                   colors: [Colors.blue, Colors.yellow],
                 ),
                 borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: const Text("Ini adalah teks di dalam container"),
-            ),
-
-            const SizedBox(height: 20),
-
-            // 🔶 Container kedua (tambahan dari foto)
-            Container(
-              width: 120,
-              height: 120,
-              margin: const EdgeInsets.all(10),
-              padding: const EdgeInsets.all(15),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                color: Colors.orange,
-                borderRadius: BorderRadius.circular(15),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
@@ -71,12 +63,46 @@ class MyHome extends StatelessWidget {
                 ],
               ),
               child: const Text(
-                "Container kedua",
-                style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                "Ini adalah teks di dalam container",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-          ],
-        ),
+          ),
+
+        
+          Transform.rotate(
+            angle: -0.17, // -0.17 radian = -10 derajat
+            child: Container(
+              width: 120,
+              height: 120,
+              alignment: Alignment.center,
+              margin: const EdgeInsets.only(top: 30, left: 20),
+              padding: const EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                gradient: const LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [Colors.red, Colors.white],
+                ),
+                borderRadius: BorderRadius.circular(10.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    spreadRadius: 2,
+                    blurRadius: 5,
+                    offset: const Offset(3, 3),
+                  ),
+                ],
+              ),
+              child: const Text(
+                "Ini King Emyu",
+                textAlign: TextAlign.center,
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
