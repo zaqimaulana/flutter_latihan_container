@@ -38,9 +38,7 @@ class MyHome extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // 🔄 Container 1
-          Transform.rotate(
-            angle: 0.26, // 15 derajat
-            child: Container(
+          Container(
               width: 220,
               height: 120,
               alignment: Alignment.center,
@@ -70,7 +68,6 @@ class MyHome extends StatelessWidget {
                   color: Colors.black,
                 ),
               ),
-            ),
           ),
 
           // 🔄 Container 2
@@ -99,14 +96,14 @@ class MyHome extends StatelessWidget {
                 ],
               ),
               child: const Text(
-                "Ini King Emyu",
+                "container miring",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
           ),
 
-          // 🖼️ Gambar di bawah "Ini King Emyu"
+          // 🖼️ 
           Transform.rotate(
             angle: 0.1, // sedikit miring agar serasi
             child: Container(
